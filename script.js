@@ -28,8 +28,8 @@ const opcionesAdicionales = {
 const metodosDePago = ['Efectivo', 'Transferencia Bancaria', 'Tarjeta Credito o Debito'];
 
 const metodosEntrega = [ // ALGO PARA PREGUNTAR
-    { metodosEntrega: 'Paso por el Pedido', precioEnvio: 0},
-    { metodosEntrega: 'Entrega a Domicilio', precioEnvio: 0}
+    { metodosEntrega: 'Paso por el Pedido', precioEnvio: 0}
+    // Próximamente: Entrega a Domicilio
 ];
 
 const pizzas = [
@@ -1575,22 +1575,12 @@ function populatePaymentAndDeliveryOptions() {
         paymentMethodSelect.appendChild(option);
     });
 
-    const deliveryAddressSelect = document.getElementById('deliveryAddress');
-    deliveryAddressSelect.innerHTML = '';
-    
-    // Default option for delivery address
-    const defaultAddressOption = new Option("Selecciona un método de entrega", "", true, true);
-    defaultAddressOption.disabled = true;
-    deliveryAddressSelect.appendChild(defaultAddressOption);
-
-    // Populate delivery methods
-    metodosEntrega.forEach(({ metodosEntrega }) => {
-        const option = new Option(metodosEntrega, metodosEntrega);
-        if (metodosEntrega === selectedDeliveryMethod) {
-            option.selected = true;
-        }
-        deliveryAddressSelect.appendChild(option);
-    });
+    // El método de entrega ahora es estático (Paso por el Pedido)
+    // No necesitamos poblar un select, ya está definido en el HTML
+    const deliveryAddressInput = document.getElementById('deliveryAddress');
+    if (deliveryAddressInput) {
+        deliveryAddressInput.value = 'Paso por el Pedido';
+    }
 
     // Show or hide delivery notice based on selected delivery method
     handleOptionsChange();
@@ -1601,51 +1591,25 @@ function populatePaymentAndDeliveryOptions() {
 
 function handleOptionsChange() {
     const paymentMethod = document.getElementById("paymentMethod").value;
-    const deliveryAddress = document.getElementById("deliveryAddress").value;
-    const deliveryNotice = document.getElementById("deliveryNotice");
     const deliveryInputsContainer = document.getElementById("deliveryInputsContainer");
     const paymentInputContainer = document.getElementById("paymentInputContainer");
-    const confirmButton = document.querySelector('.btn-primary');
 
-    // Reiniciar mensajes y campos adicionales
-    deliveryNotice.style.display = "none";
-    deliveryNotice.textContent = "";
-    paymentInputContainer.style.display = "none";
-    deliveryInputsContainer.style.display = "none";
-
-    let noticeMessage = "";
-
-    // Entrega a domicilio
-    if (deliveryAddress === "Entrega a Domicilio") {
-        noticeMessage = "La Entrega a Domicilio tiene un costo que depende de la Zona.";
-        deliveryInputsContainer.style.display = "block";
-        validateDeliveryInputs();
-    } 
-
-    // Pago con tarjeta
-    if (paymentMethod === "Tarjeta Credito o Debito") {
-        if (deliveryAddress === "Entrega a Domicilio") {
-            noticeMessage += " Se le enviará una terminal a la casa.";
-        } else {
-            noticeMessage = "Se le enviará una terminal a la casa.";
-        }
+    // Asegurar que los campos de dirección siempre estén ocultos
+    if (deliveryInputsContainer) {
+        deliveryInputsContainer.style.display = "none";
     }
 
     // Pago en efectivo
     if (paymentMethod === "Efectivo") {
         paymentInputContainer.style.display = "block";
-    }
-
-    // Mostrar el mensaje si hay algo que mostrar
-    if (noticeMessage) {
-        deliveryNotice.style.display = "block";
-        deliveryNotice.textContent = noticeMessage;
+    } else {
+        paymentInputContainer.style.display = "none";
     }
 }
 
-// Validar en tiempo real los inputs de entrega a domicilio
-document.getElementById("colonia").addEventListener("input", validateDeliveryInputs);
-document.getElementById("numeroCasa").addEventListener("input", validateDeliveryInputs);
+// Validar en tiempo real los inputs de entrega a domicilio (deshabilitado - solo paso por el local)
+// document.getElementById("colonia").addEventListener("input", validateDeliveryInputs);
+// document.getElementById("numeroCasa").addEventListener("input", validateDeliveryInputs);
 
 
 function validateDeliveryInputs() {
@@ -1950,10 +1914,8 @@ function sendOrder() {
         return; // Evitar que se envíe el pedido
     }
 
-    if (!deliveryAddress) {
-        alert("Por favor, selecciona un método de entrega.");
-        return; // Evitar que se envíe el pedido
-    }
+    // El método de entrega siempre es "Paso por el Pedido" (estático)
+    // No necesita validación
 
 
 
@@ -1966,37 +1928,10 @@ function sendOrder() {
 
     // Agregar método de pago y dirección al mensaje
     orderMessage += `\nMétodo de Pago: ${paymentMethod || 'No especificado'}`;
-    orderMessage += `\nMétodo de Entrega: ${deliveryAddress || 'No especificada'}`;
+    orderMessage += `\nMétodo de Entrega: ${deliveryAddress || 'Paso por el Pedido'}`;
 
-    
-
-    if (deliveryAddress === "Entrega a Domicilio") {
-        const colonia = document.getElementById("colonia").value.trim();
-        const numeroCasa = document.getElementById("numeroCasa").value.trim();
-
-        // Verificar que los campos de dirección estén llenos
-        if (!colonia || !numeroCasa) {
-            alert("Por favor, llena todos los campos de la dirección.");
-            return;
-        }
-
-        // Agregar datos de dirección al mensaje
-        orderMessage += `\nDirección:\n    Colonia y Sector: ${colonia}\n   Calle y Número de Casa: ${numeroCasa}`;
-    }
-
-
-    // Variable para almacenar el texto del total ajustado
-    let totalText;
-
-    // Verificar si la opción de entrega es "Entrega a Domicilio"
-    if (deliveryAddress === "Entrega a Domicilio") {
-        orderMessage += `\nTotal: $${totalPrice.toFixed(2)} + Envio`;
-
-        totalText = ``;
-    } else {
-        // Usar solo el total sin costos adicionales
-        orderMessage += `\nTotal: $${totalPrice.toFixed(2)}`;
-    }
+    // Solo hay "Paso por el Pedido", siempre mostrar el total sin envío
+    orderMessage += `\nTotal: $${totalPrice.toFixed(2)}`;
 
     if (paymentMethod === "Efectivo" && !isNaN(paymentInputContainerval)) {
         orderMessage += `\nPaga con: $${paymentInputContainerval.toFixed(2)}`;
