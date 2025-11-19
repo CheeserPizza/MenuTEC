@@ -516,6 +516,16 @@ nav {
     font-size: 0.95rem;
 }
 
+/* Estilos específicos para el select de tamaño de pizza */
+#customPizzaModalContainer .form-control#pizzaSize {
+    padding: 10px 40px 10px 12px !important;
+    color: #212529 !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    background-color: #ffffff !important;
+    border: 1px solid #ddd !important;
+}
+
 /* Botones en el modal */
 .modal-footer .btn {
     border-radius: 20px;
@@ -871,17 +881,37 @@ nav {
 
 #customPizzaModalContainer select {
     width: 100%;
-    padding: 10px;
+    padding: 10px 40px 10px 12px;
     border: 1px solid #ddd;
     border-radius: 6px;
-    background-color: #f8f9fa;
-    color: #555;
+    background-color: #ffffff;
+    color: #212529;
     font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
     appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='gray'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23212529'><path d='M7 10l5 5 5-5z'/></svg>");
     background-repeat: no-repeat;
-    background-position: right 10px center;
+    background-position: right 12px center;
+    background-size: 20px;
     cursor: pointer;
+    overflow: visible;
+    text-overflow: ellipsis;
+}
+
+#customPizzaModalContainer select option {
+    color: #212529;
+    background-color: #ffffff;
+    padding: 10px 12px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#customPizzaModalContainer #pizzaSize {
+    padding: 10px 40px 10px 12px;
+    color: #212529;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 #customPizzaModalContainer select:focus {
