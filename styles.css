@@ -1,0 +1,1105 @@
+/* Estilos personalizados */
+body {
+    background-color: #ffef12;
+    text-align: center;
+    padding-top: 60px; /* Espacio para la barra fija */
+    padding-bottom: 60px;
+}
+
+nav {
+    background-color: #4473c5;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #3e9cff;
+    color: #e9ff23;
+    font-weight: 600;
+
+}
+
+.nav-tabs .nav-link {
+    color: #ffffff;
+    border: none;
+}
+
+
+
+.nav-tabs .nav-link:hover {
+    background-color: #3e9cff;
+    color: #e9ff23;
+    font-weight: 600;
+}
+
+/* */ 
+.container h2 {
+    color: #000000;
+    font-weight: 600;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    background-color: #ffffff; /* Color de fondo sólido para la tarjeta */
+}
+
+.card:hover {
+    background-color: #f0f0f0; /* Fondo gris claro para el hover */
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-control button {
+    width: 35px;
+    height: 28px;
+    padding: 0;
+}
+
+.pizza-price {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.quantity-input {
+    width: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.card img {
+    height: 220px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    color: #343a40;
+    font-weight: 600;
+}
+
+.card-text {
+    color: #6c757d;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive para el modal de confirmación */
+@media (max-width: 768px) {
+    #orderModal .modal-dialog {
+        margin: 10px;
+        max-width: calc(100% - 20px);
+    }
+    
+    #orderModal .modal-body {
+        padding: 15px;
+    }
+    
+    .order-item-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .order-item-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .order-item-text {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    #orderSummary {
+        max-height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    #orderModal .modal-dialog {
+        margin: 5px;
+        max-width: calc(100% - 10px);
+    }
+    
+    #orderModal .modal-body {
+        padding: 12px;
+    }
+    
+    .order-item-text {
+        font-size: 0.85rem;
+    }
+    
+    .btn-delete-pizza {
+        min-width: 24px;
+        height: 24px;
+        padding: 2px 6px;
+    }
+    
+    .btn-delete-pizza svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    #orderSummary {
+        max-height: 200px;
+    }
+}
+
+.modal-header, .modal-footer {
+    border: none;
+}
+
+.modal-header .btn-close {
+    background-color: transparent;
+}
+
+.list-group-item {
+    border: none;
+    padding: 15px;
+}
+
+.list-group-item .badge {
+    background-color: #007bff;
+}
+
+/* Estilo para el modal */
+.modal-content {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+/* Estilo para el título del modal */
+.modal-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Estilo para los formularios dentro del modal */
+#optionsForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo para los grupos de formulario */
+.mb-3 {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Centrar el select y los radio buttons */
+.form-select, .form-check-input {
+    width: 100%;
+}
+
+/* Añadir margen y padding a las etiquetas y opciones */
+.form-label {
+    margin-bottom: 0.5rem;
+}
+
+.form-check-label {
+    margin-left: 0.5rem;
+}
+
+/* Estilos personalizados para el navbar */
+.custom-navbar {
+    background-color: #4473c5;
+    padding: 15px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 15px 15px;
+}
+
+.custom-navbar .nav-tabs {
+    border-bottom: none;
+    justify-content: center;
+}
+
+.custom-navbar .nav-link {
+    color: #ffffff;
+    font-size: 18px;
+    padding: 12px 20px;
+    margin: 0 5px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.custom-navbar .nav-link.active {
+    background-color: #3e9cff;
+    color: #e9ff23;
+    font-weight: bold;
+}
+
+.custom-navbar .nav-link:hover {
+    background-color: #3e9cff;
+    color: #e9ff23;
+    font-weight: 600;
+}
+
+/* Títulos de sección */
+.section-title {
+    color: #343a40;
+    font-weight: 700;
+    font-size: 2rem;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ffef12;
+}
+
+/* Contenedor general de las tarjetas */
+.tab-content .container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Efecto hover para tarjetas */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Estilo para el botón "Enviar Pedido" */
+.custom-btn {
+    background-color: #4473c5;
+    color: #ffffff;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.custom-btn:hover {
+    background-color: #3e9cff;
+    color: #ffef12;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Card para el contenedor de pizzas */
+.pizza-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.pizza-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen de la tarjeta */
+.pizza-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Título de la tarjeta */
+.pizza-card .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Lista de productos en la tarjeta */
+.pizza-card .list-unstyled {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+/* Precio de la pizza */
+.pizza-price {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Control de cantidad */
+.quantity-control {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-input {
+    width: 40px;
+    text-align: center;
+    font-size: 1rem;
+    border: none;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+}
+
+.quantity-control button {
+    color: #4473c5;
+    border: 1px solid #d9d9d9;
+    font-size: 0.9rem;
+    padding: 2px 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.quantity-control button:hover {
+    background-color: #4473c5;
+    color: #ffffff;
+}
+
+/* Estilo general para el modal */
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.modal-header, .modal-footer {
+    background-color: #4473c5;
+    color: #fff;
+    border-bottom: 2px solid #3367b0;
+    padding: 20px;
+}
+
+.modal-title {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.modal-header .close,
+.modal-header .btn-close {
+    color: #fff;
+    opacity: 0.8;
+}
+
+.modal-header .close:hover,
+.modal-header .btn-close:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+/* Cuerpo del modal */
+.modal-body {
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.modal-body p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ff9500;
+}
+
+#orderSummary {
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#orderSummary li {
+    border: none;
+    padding: 8px 15px;
+    font-size: 0.95rem;
+}
+
+.order-item {
+    position: relative;
+}
+
+.order-item-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.order-item-text {
+    flex: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+.order-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.btn-delete-pizza {
+    background: transparent;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    min-width: 28px;
+    height: 28px;
+}
+
+.btn-delete-pizza:hover {
+    background: #f8d7da;
+    color: #721c24;
+    transform: scale(1.1);
+}
+
+.btn-delete-pizza:active {
+    transform: scale(0.95);
+}
+
+.btn-delete-pizza svg {
+    width: 18px;
+    height: 18px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #555;
+}
+
+.form-control {
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 0.95rem;
+}
+
+/* Botones en el modal */
+.modal-footer .btn {
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+
+.modal-footer .btn-primary {
+    background-color: #ff9500;
+    border: none;
+}
+
+.modal-footer .btn-primary:hover {
+    background-color: #ffb85c;
+}
+
+.modal-footer .btn-secondary {
+    background-color: #f1f1f1;
+    color: #555;
+    border: none;
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #e2e2e2;
+    color: #333;
+}
+
+/* General styling for the options modal */
+#optionsForm img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+#optionsForm label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Styling for radio buttons */
+.radio-option {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.radio-option input[type="radio"] {
+    margin-right: 10px;
+}
+
+.radio-option:hover {
+    background-color: #f0f0f0;
+}
+
+/* Apply a color on selection */
+.radio-option.selected {
+    background-color: #ff9500;
+    color: white;
+    border-color: #ff9500;
+}
+
+/* Select dropdown styling */
+.form-control {
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+/* Styling for "Salsa" and "Tipo" titles */
+.option-title {
+    font-size: 1.1rem;
+    color: #4473c5;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .radio-option {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+}
+
+
+
+/* Media query para pantallas de 767 píxeles o menos */
+@media (max-width: 767px) {
+    body {
+        padding-top: 110px;
+    }
+}
+
+/* Media query para pantallas de 322 píxeles o menos */
+@media (max-width: 322px) {
+    body {
+        padding-top: 160px;
+
+    }
+}
+
+
+/* Media query para pantallas de 317 píxeles o menos */
+@media (max-width: 317px) {
+    body {
+        padding-top: 210px;
+    }
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Un tono más oscuro en hover */
+    transform: scale(1.05); /* Ligeramente más grande en hover */
+}
+
+/* Estilos personalizados para el mensaje de alerta */
+.alert-custom {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #ffdd57, #ffc107);
+    color: #856404;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ffca2c;
+    margin-bottom: 10px;
+
+}
+
+.alert-custom i {
+    font-size: 1.5em;
+    margin-right: 10px;
+    color: #000000;
+}
+
+
+/* Contenedor principal del modal */
+#customPizzaModalContainer {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+#customPizzaModalContainer .modal-content {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: #fefefe;
+}
+
+#customPizzaModalContainer .modal-header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    border-bottom: none;
+    padding: 15px 20px;
+}
+
+#customPizzaModalContainer .modal-title {
+    font-weight: bold;
+    letter-spacing: 0.8px;
+}
+
+#customPizzaModalContainer .modal-header .close {
+    color: #fff;
+    font-size: 1.5rem;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+#customPizzaModalContainer .modal-header .close:hover {
+    opacity: 1;
+}
+
+#customPizzaModalContainer .modal-body {
+    padding: 20px;
+    background-color: #fafafa;
+}
+
+/* Etiquetas y elementos del formulario */
+#customPizzaModalContainer .form-group label {
+    display: block;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+#customPizzaModalContainer .form-check {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+#customPizzaModalContainer .form-check:hover {
+    transform: scale(1.05);
+}
+
+#customPizzaModalContainer .form-check-input {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+#customPizzaModalContainer .form-check-input:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+#customPizzaModalContainer .form-check-input:checked::before {
+    content: "✔";
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#customPizzaModalContainer .form-check-label {
+    margin-bottom: 0;
+    color: #555;
+    font-size: 1rem;
+}
+
+/* Vista previa de ingredientes seleccionados */
+#customPizzaModalContainer textarea#previewPizza {
+    background-color: #e9ecef;
+    border: 1px solid #ccc;
+    font-style: italic;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    padding: 10px;
+    resize: none;
+}
+
+/* Botones */
+#customPizzaModalContainer .modal-footer {
+    background-color: #f1f1f1;
+    border-top: none;
+    padding: 15px 20px;
+}
+
+#customPizzaModalContainer .btn-secondary,
+#customPizzaModalContainer .btn-primary {
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+}
+
+#customPizzaModalContainer .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    color: white;
+}
+
+#customPizzaModalContainer .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+#customPizzaModalContainer .btn-primary {
+    background-color: #28a745;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
+#customPizzaModalContainer .btn-primary:hover {
+    background-color: #218838;
+}
+
+
+/* Contenedor principal del modal */
+#customPizzaModalContainer {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+#customPizzaModalContainer .modal-content {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+}
+
+#customPizzaModalContainer .modal-header {
+    background: #3d73d3;
+    color: #fff;
+    border-bottom: none;
+    padding: 15px 20px;
+}
+
+#customPizzaModalContainer .modal-title {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+#customPizzaModalContainer .modal-header .close {
+    color: #fff;
+    font-size: 1.5rem;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+#customPizzaModalContainer .modal-header .close:hover {
+    opacity: 1;
+}
+
+#customPizzaModalContainer .modal-body {
+    padding: 20px;
+    text-align: center;
+    background-color: #fdfdfd;
+}
+
+/* Imagen principal en el modal */
+#customPizzaModalContainer .modal-body img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Etiquetas y selección */
+#customPizzaModalContainer label {
+    font-weight: bold;
+    margin-top: 15px;
+    display: block;
+    color: #444;
+    font-size: 1rem;
+}
+
+#customPizzaModalContainer select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f8f9fa;
+    color: #555;
+    font-size: 1rem;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='gray'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    cursor: pointer;
+}
+
+#customPizzaModalContainer select:focus {
+    outline: none;
+    border-color: #3d73d3;
+    box-shadow: 0 0 5px rgba(61, 115, 211, 0.5);
+}
+
+/* Pie del modal */
+#customPizzaModalContainer .modal-footer {
+    background-color: #f1f1f1;
+    border-top: none;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#customPizzaModalContainer .btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border-radius: 20px;
+    font-weight: bold;
+    padding: 8px 20px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+#customPizzaModalContainer .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+#customPizzaModalContainer .btn-primary {
+    background-color: #ffa500;
+    color: #fff;
+    border-radius: 20px;
+    font-weight: bold;
+    padding: 8px 20px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+#customPizzaModalContainer .btn-primary:hover {
+    background-color: #e69500;
+}
+
+#deliveryInputsContainer .form-group {
+    margin-bottom: 15px;
+}
+
+/* Estilos para ingredientes con ubicación en el modal de crear pizza */
+#customPizzaModalContainer #ingredientesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.ingrediente-item {
+    background: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    cursor: pointer;
+}
+
+.ingrediente-item:hover {
+    border-color: #007bff;
+    box-shadow: 0 4px 8px rgba(0,123,255,0.15);
+}
+
+.ingrediente-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.ingrediente-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+    flex: 1;
+}
+
+.ubicacion-icons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.ubicacion-icon-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #d0d0d0;
+    background: #f8f9fa;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    color: #666;
+}
+
+.ubicacion-icon-btn:hover {
+    border-color: #007bff;
+    background: #e7f3ff;
+    color: #007bff;
+    transform: scale(1.1);
+}
+
+.ubicacion-icon-btn.active {
+    border-color: #007bff;
+    background: #007bff;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0,123,255,0.3);
+    transform: scale(1.05);
+}
+
+.ubicacion-icon-btn.active svg {
+    color: white;
+}
+
+.ubicacion-icon-btn.active svg circle[stroke] {
+    stroke: white;
+}
+
+/* Para el botón "toda" - círculo completo relleno */
+.ubicacion-icon-btn.active[data-ubicacion="toda"] svg circle.full-circle {
+    fill: white;
+    opacity: 1;
+    stroke: white;
+}
+
+/* Para el botón "izquierda" - medio círculo izquierdo */
+.ubicacion-icon-btn.active[data-ubicacion="izquierda"] svg path.half-circle-left {
+    fill: white;
+    opacity: 1;
+}
+
+/* Para el botón "derecha" - medio círculo derecho */
+.ubicacion-icon-btn.active[data-ubicacion="derecha"] svg path.half-circle-right {
+    fill: white;
+    opacity: 1;
+}
+
+.ubicacion-icon-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    #customPizzaModalContainer #ingredientesContainer {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .ingrediente-item {
+        padding: 10px 12px;
+    }
+    
+    .ingrediente-row {
+        gap: 10px;
+    }
+    
+    .ubicacion-icons {
+        gap: 6px;
+    }
+    
+    .ubicacion-icon-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .ubicacion-icon-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    #customPizzaModalContainer .modal-dialog {
+        margin: 10px;
+    }
+    
+    #customPizzaModalContainer .modal-body {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ingrediente-name {
+        font-size: 0.9rem;
+    }
+    
+    .ubicacion-icon-btn {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .ubicacion-icon-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .ingrediente-row {
+        gap: 8px;
+    }
+}
+
+/* Mejoras adicionales para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #customPizzaModalContainer #ingredientesContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
