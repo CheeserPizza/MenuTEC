@@ -1,5 +1,15 @@
 // Datos de Pizzas, Paquetes y Complementos
 
+// Versión de las imágenes - Cambia este número cuando subas nuevas imágenes para forzar la recarga
+const IMAGE_VERSION = "v2.0";
+
+// Función para agregar versión a las URLs de imágenes y evitar caché
+function getImageUrl(imgPath) {
+    if (!imgPath) return '';
+    const separator = imgPath.includes('?') ? '&' : '?';
+    return `${imgPath}${separator}v=${IMAGE_VERSION}`;
+}
+
 let customPizzaQuantityValue = 0; // Variable global para la cantidad
 
 const ingredientes = [
@@ -65,7 +75,7 @@ const paquetes = [
         type: "paquete", 
         name: "Paquete 1",
         id: "paquete-1", 
-        img: "imgs/paquete1.jpg", 
+        img: "imgs/Paquete1.jpg", 
         price: 265, 
         products: [
             { type: "pizza", name: "Pizza de Peperoni", options: { ingredients: ingredientes } },
@@ -77,7 +87,7 @@ const paquetes = [
         type: "paquete", 
         name: "Paquete 2",
         id: "paquete-2", 
-        img: "imgs/paquete2.jpg", 
+        img: "imgs/Paquete2.jpg", 
         price: 195, 
         products: [
             { type: "pizza", name: "Pizza de Peperoni", options: { ingredients: ingredientes } },
@@ -89,7 +99,7 @@ const paquetes = [
         type: "paquete", 
         name: "Paquete 3",
         id: "paquete-3", 
-        img: "imgs/paquete3.jpg", 
+        img: "imgs/Paquete3.jpg", 
         price: 225, 
         products: [
             { type: "pizza", name: "Pizza De Boneless (Bañados o Naturales)", options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } },
@@ -102,7 +112,7 @@ const paquetes = [
         type: "paquete",
         name: "Paquete 4", 
         id: "paquete-4",
-        img: "imgs/paquete4.jpg", 
+        img: "imgs/Paquete4.jpg", 
         price: 315, 
         products: [
             { type: "pizza", name: "2 Pizzas de Peperoni con Extra Queso", options: { ingredients: ingredientes, multiple: true } },
@@ -113,7 +123,7 @@ const paquetes = [
         type: "paquete",
         name: "Paquete 5", 
         id: "paquete-5",
-        img: "imgs/paquete5.jpg", 
+        img: "imgs/Paquete5.jpg", 
         price: 315, 
         products: [
             { type: "pizza", name: "Pizza Grande de 1 Ingrediente", options: { ingredients: ingredientes } },
@@ -183,7 +193,7 @@ function generateCards(items, containerId, type) {
         const createPizzaCard = `
         <div class="col-sm-6 col-md-4">
             <div class="card pizza-card" onclick="increaseCustomPizza()">
-                <img src="imgs/bmo.png" class="card-img-top" alt="Crea tu pizza">
+                <img src="${getImageUrl('imgs/bmo.png')}" class="card-img-top" alt="Crea tu pizza">
                 <div class="card-body">
                     <h5 class="card-title text-center">Crea tu pizza</h5>
                     <div class="d-flex justify-content-between align-items-center">
@@ -224,7 +234,7 @@ function generateCards(items, containerId, type) {
         return `
             <div class="col-sm-6 col-md-4">
                 <div class="card pizza-card">
-                    <img src="${item.img}" class="card-img-top" alt="${item.name}">
+                    <img src="${getImageUrl(item.img)}" class="card-img-top" alt="${item.name}">
                     <div class="card-body">
                         <h5 class="card-title text-center">${item.name}</h5>
                         ${description} <!-- Se agrega la descripción con los productos si es un paquete -->
@@ -432,7 +442,7 @@ function increaseQuantity(type, name) { //name es el id para que no refactorice 
 
     if (product.img) {
         const img = document.createElement('img');
-        img.src = product.img;
+        img.src = getImageUrl(product.img);
         img.alt = product.name;
         img.className = 'img-fluid mb-2';
         optionsForm.appendChild(img);
