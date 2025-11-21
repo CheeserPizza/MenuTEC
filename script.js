@@ -1,7 +1,7 @@
 // Datos de Pizzas, Paquetes y Complementos
 
 // Versión de las imágenes - Cambia este número cuando subas nuevas imágenes para forzar la recarga
-const IMAGE_VERSION = "v2.0";
+const IMAGE_VERSION = "v2.1";
 
 // Función para agregar versión a las URLs de imágenes y evitar caché
 function getImageUrl(imgPath) {
@@ -148,7 +148,7 @@ const complementos = [
     { id: "complemento-espagueti-carne", type: "complemento", name: "Espagueti Con Carne", img: "imgs/espagueticarne.jpg", price: 79 },
     { id: "complemento-aderezo", type: "complemento", name: "Aderezo", img: "imgs/aderezo.jpg", price: 15, options: { sauces: ["Ranch", "Jalapeño", "Chipotle", "BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"] } },
     { id: "complemento-3aderezos", type: "complemento", name: "3 Aderezos por $30", img: "imgs/aderezo.jpg", price: 30, options: { sauces: ["Ranch", "Jalapeño", "Chipotle", "BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], multiple: true } },
-    { id: "complemento-aros-cebolla", type: "complemento", name: "6 Aros de Cebolla", img: "imgs/arosdecebolla.jpg", price: 69 },
+    { id: "complemento-aros-cebolla", type: "complemento", name: "8 Aros de Cebolla", img: "imgs/arosdecebolla.jpg", price: 69 },
     { id: "complemento-dedos-queso", type: "complemento", name: "5 Dedos de Queso", img: "imgs/dedosdequeso.jpg", price: 89},
     { id: "complemento-jalapenos-poppers", type: "complemento", name: "5 Jalapeños Poppers", img: "imgs/jalapeñospoppers.jpg", price: 89 },
     { id: "complemento-refresco", type: "complemento", name: "Refresco Grande 1.75L", img: "imgs/cocacola.jpg", price: 59 }
