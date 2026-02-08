@@ -1,7 +1,7 @@
 // Datos de Pizzas, Paquetes y Complementos
 
 // Versión de las imágenes - Cambia este número cuando subas nuevas imágenes para forzar la recarga
-const IMAGE_VERSION = "v2.1";
+const IMAGE_VERSION = "v2.2";
 
 // Función para agregar versión a las URLs de imágenes y evitar caché
 function getImageUrl(imgPath) {
@@ -28,7 +28,14 @@ const ingredientes = [
 ];
 
 const ingredientesExtra = {};
-  
+
+// Especialidades: si en "Crea tu pizza" eliges exactamente estos ingredientes, se aplica el precio fijo
+const especialidadesPizza = [
+    { name: 'Hawaiana', ingredientes: ['Jamón', 'Piña'].sort(), price: 159 },
+    { name: '3 Carnes', ingredientes: ['Jamón', 'Pepperoni', 'Salchicha Italiana'].sort(), price: 179 },
+    { name: 'Ala mexicana', ingredientes: ['Cebolla', 'Chorizo', 'Pimiento Morron'].sort(), price: 179 },
+    { name: 'Suprema', ingredientes: ['Cebolla', 'Champiñones', 'Jamón', 'Pepperoni', 'Pimiento Morron', 'Salchicha Italiana'].sort(), price: 199 }
+];
 
 const opcionesAdicionales = {
     orillaRellena: false, // Orilla rellena de queso
@@ -51,19 +58,19 @@ const pizzas = [
 
     { id: "pizza-peperoniExtra", type: "pizza", id: "mitamita", name: "1/2 Peperoni 1/2 Queso ", img: "imgs/pizzamitamita.jpeg", price: 119 },
 
-    { id: "pizza-suprema", type: "pizza", id: "suprema", name: "Pizza Suprema", img: "imgs/suprema.jpg", price: 189 },
+    { id: "pizza-suprema", type: "pizza", id: "suprema", name: "Pizza Suprema", img: "imgs/suprema.jpg", price: 199 },
     
     { id: "pizza-hawaiana", type: "pizza", id: "hawaiana", name: "Pizza Hawaiana", img: "imgs/hawaiana.jpg", price: 159 },
     
     { id: "pizza-trompo", type: "pizza", id: "trompo", name: "Pizza De Trompo", img: "imgs/pizzaTrompo.jpg", price: 169 },
     
-    { id: "pizza-3carnes", type: "pizza", id: "3carnes", name: "Pizza 3 Carnes", img: "imgs/3carnes.jpg", price: 169 },
+    { id: "pizza-3carnes", type: "pizza", id: "3carnes", name: "Pizza 3 Carnes", img: "imgs/3carnes.jpg", price: 179 },
     
     { id: "pizza-alpastor", type: "pizza", id: "alpastor", name: "Pizza Al Pastor", img: "imgs/pizzaAlPastor.jpg", price: 179 },
     
     { id: "pizza-boneless", type: "pizza", id: "pizzaBoneless", name: "Pizza de Boneless con Aderezo", img: "imgs/pizzaBoneless.jpg", price: 189 },
     
-    { id: "pizza-mexicana", type: "pizza", id: "mexicana", name: "Pizza A la Mexicana", img: "imgs/mexicana.jpg", price: 189 },
+    { id: "pizza-mexicana", type: "pizza", id: "mexicana", name: "Pizza A la Mexicana", img: "imgs/mexicana.jpg", price: 179 },
     
     { id: "pizza-cheetos", type: "pizza", id: "cheetos", name: "Pizza de Cheetos Flamin Hot", img: "imgs/cheetos.jpg", price: 179 },
     
@@ -76,7 +83,7 @@ const paquetes = [
         name: "Paquete 1",
         id: "paquete-1", 
         img: "imgs/Paquete1.jpg", 
-        price: 265, 
+        price: 279, 
         products: [
             { type: "pizza", name: "Pizza de Peperoni", options: { ingredients: ingredientes } },
             { type: "bonealitas", name: "Boneless", options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } },
@@ -88,7 +95,7 @@ const paquetes = [
         name: "Paquete 2",
         id: "paquete-2", 
         img: "imgs/Paquete2.jpg", 
-        price: 195, 
+        price: 199, 
         products: [
             { type: "pizza", name: "Pizza de Peperoni", options: { ingredients: ingredientes } },
             { type: "complementos", name: "Espagueti Sencillo" },
@@ -100,7 +107,7 @@ const paquetes = [
         name: "Paquete 3",
         id: "paquete-3", 
         img: "imgs/Paquete3.jpg", 
-        price: 225, 
+        price: 229, 
         products: [
             { type: "pizza", name: "Pizza De Boneless (Bañados o Naturales)", options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } },
             { type: "complemento", name: "Aderezo A Elegir", options: { sauces: ["Ranch", "Jalapeño", "Chipotle", "BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"] } },
@@ -113,7 +120,7 @@ const paquetes = [
         name: "Paquete 4", 
         id: "paquete-4",
         img: "imgs/Paquete4.jpg", 
-        price: 315, 
+        price: 329, 
         products: [
             { type: "pizza", name: "2 Pizzas de Peperoni con Extra Queso", options: { ingredients: ingredientes, multiple: true } },
             { type: "bebida", name: "Refresco Grande 1.75L" }
@@ -124,7 +131,7 @@ const paquetes = [
         name: "Paquete 5", 
         id: "paquete-5",
         img: "imgs/Paquete5.jpg", 
-        price: 315, 
+        price: 329, 
         products: [
             { type: "pizza", name: "Pizza Grande de 1 Ingrediente", options: { ingredients: ingredientes } },
             { type: "bonealitas", name: "Boneless con Papas", options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } },
@@ -137,8 +144,8 @@ const paquetes = [
 const bonealitas = [
     { id: "bonealitas-boneless", type: "bonealitas", name: "Boneless", img: "imgs/boneless.jpg", price: 139, options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } },
     { id: "bonealitas-alitas", type: "bonealitas", name: "Alitas", img: "imgs/alitas.jpg", price: 139, options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } },
-    { id: "bonealitas-1kg-boneless", type: "bonealitas", name: "1Kg de Boneless (No incluye papas)", img: "imgs/kiloBoneless.jpg", price: 279, options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } },
-    { id: "bonealitas-1kg-alitas", type: "bonealitas", name: "1Kg de Alitas  (No incluye papas)", img: "imgs/alitas.jpg", price: 279, options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } }
+    { id: "bonealitas-1kg-boneless", type: "bonealitas", name: "1Kg de Boneless (No incluye papas)", img: "imgs/kiloBoneless.jpg", price: 289, options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } },
+    { id: "bonealitas-1kg-alitas", type: "bonealitas", name: "1Kg de Alitas  (No incluye papas)", img: "imgs/alitas.jpg", price: 289, options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } }
 ];
 
 const complementos = [
@@ -1133,7 +1140,15 @@ function calcularPrecioPizza(ingredientesSeleccionados, orillaRellena = false, i
     }
 
     // Lógica para pizza grande (por defecto)
-    if (ingredientesSeleccionados.length === 0) {
+    // Especialidad solo aplica sin orilla rellena ni queso extra; si agregan eso, se cobra por ingredientes normal + extras
+    const sortedIng = [...ingredientesSeleccionados].sort();
+    const especialidadMatch = !orillaRellena && !quesoExtra && especialidadesPizza.find(esp =>
+        esp.ingredientes.length === sortedIng.length &&
+        esp.ingredientes.every((ing, i) => ing === sortedIng[i])
+    );
+    if (especialidadMatch) {
+        precioBase = especialidadMatch.price;
+    } else if (ingredientesSeleccionados.length === 0) {
         precioBase = 0;
     } else if (ingredientesSeleccionados.length === 1) {
         // Si tiene doble queso, se cancela la promo y se cobra como 1 ingrediente
@@ -1163,32 +1178,18 @@ function calcularPrecioPizza(ingredientesSeleccionados, orillaRellena = false, i
     } else if (ingredientesSeleccionados.length === 2) {
         precioBase = 159;
     } else if (ingredientesSeleccionados.length === 3) {
-        precioBase = 169;
+        precioBase = 179;
     } else if (ingredientesSeleccionados.length >= 4) {
         const ingredientesExtra = ingredientesSeleccionados.length - 3;
-        precioBase = 169 + (ingredientesExtra * 10);
+        precioBase = 179 + (ingredientesExtra * 10); // 3 ing = $179, del 4to en adelante +$10 c/u
     }
 
-    // Si tiene orilla rellena
+    // Si tiene orilla rellena: siempre +$40 (igual que queso extra)
     if (orillaRellena) {
-        // Si era promo de 1 ingrediente, se cancela la promo y se cobra como pizza normal de 1 ingrediente
         if (esPromo && ingredientesSeleccionados.length === 1) {
-            precioBase = 129; // Precio base de 1 ingrediente
-            precioBase += 40; // Agregar $40 de orilla
-        } 
-        // Si son 2 o 3 ingredientes con orilla, ambos son $199
-        else if (ingredientesSeleccionados.length === 2 || ingredientesSeleccionados.length === 3) {
-            precioBase = 199; // 2 o 3 ingredientes con orilla = $199
+            precioBase = 129; // Se cancela la promo, se cobra como 1 ingrediente
         }
-        // Si son 4+ ingredientes con orilla, es $199 + $10 por cada ingrediente extra
-        else if (ingredientesSeleccionados.length >= 4) {
-            const ingredientesExtra = ingredientesSeleccionados.length - 3;
-            precioBase = 199 + (ingredientesExtra * 10);
-        }
-        // Para 1 ingrediente que no es promo, solo agregar $40
-        else if (ingredientesSeleccionados.length === 1) {
-            precioBase += 40;
-        }
+        precioBase += 40;
     }
 
     return precioBase;
