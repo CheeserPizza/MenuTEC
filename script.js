@@ -33,7 +33,7 @@ const ingredientesExtra = {};
 const especialidadesPizza = [
     { name: 'Hawaiana', ingredientes: ['Jamón', 'Piña'].sort(), price: 159 },
     { name: '3 Carnes', ingredientes: ['Jamón', 'Pepperoni', 'Salchicha Italiana'].sort(), price: 179 },
-    { name: 'Ala mexicana', ingredientes: ['Cebolla', 'Chorizo', 'Pimiento Morron'].sort(), price: 179 },
+    { name: 'Ala mexicana', ingredientes: ['Cebolla', 'Chorizo', 'Pimiento Morron'].sort(), price: 189 },
     { name: 'Suprema', ingredientes: ['Cebolla', 'Champiñones', 'Jamón', 'Pepperoni', 'Pimiento Morron', 'Salchicha Italiana'].sort(), price: 199 }
 ];
 
@@ -62,17 +62,17 @@ const pizzas = [
     
     { id: "pizza-hawaiana", type: "pizza", id: "hawaiana", name: "Pizza Hawaiana", img: "imgs/hawaiana.jpg", price: 159 },
     
-    { id: "pizza-trompo", type: "pizza", id: "trompo", name: "Pizza De Trompo", img: "imgs/pizzaTrompo.jpg", price: 169 },
+    { id: "pizza-trompo", type: "pizza", id: "trompo", name: "Pizza De Trompo", img: "imgs/pizzaTrompo.jpg", price: 179 },
     
     { id: "pizza-3carnes", type: "pizza", id: "3carnes", name: "Pizza 3 Carnes", img: "imgs/3carnes.jpg", price: 179 },
     
-    { id: "pizza-alpastor", type: "pizza", id: "alpastor", name: "Pizza Al Pastor", img: "imgs/pizzaAlPastor.jpg", price: 179 },
+    { id: "pizza-alpastor", type: "pizza", id: "alpastor", name: "Pizza Al Pastor", img: "imgs/pizzaAlPastor.jpg", price: 189 },
     
     { id: "pizza-boneless", type: "pizza", id: "pizzaBoneless", name: "Pizza de Boneless con Aderezo", img: "imgs/pizzaBoneless.jpg", price: 199 },
     
     { id: "pizza-mexicana", type: "pizza", id: "mexicana", name: "Pizza A la Mexicana", img: "imgs/mexicana.jpg", price: 179 },
     
-    { id: "pizza-cheetos", type: "pizza", id: "cheetos", name: "Pizza de Cheetos Flamin Hot", img: "imgs/cheetos.jpg", price: 179 },
+    { id: "pizza-cheetos", type: "pizza", id: "cheetos", name: "Pizza de Cheetos Flamin Hot", img: "imgs/cheetos.jpg", price: 189 },
     
     { id: "pizza-vegetariana", type: "pizza", id: "vegetariana", name: "Pizza Vegetariana", img: "imgs/vegetariana.jpg", price: 179 }
 ];
@@ -83,7 +83,7 @@ const paquetes = [
         name: "Paquete 1",
         id: "paquete-1", 
         img: "imgs/Paquete1.jpg", 
-        price: 279, 
+        price: 295, 
         products: [
             { type: "pizza", name: "Pizza de Peperoni", options: { ingredients: ingredientes } },
             { type: "bonealitas", name: "Boneless", options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } },
@@ -95,7 +95,7 @@ const paquetes = [
         name: "Paquete 2",
         id: "paquete-2", 
         img: "imgs/Paquete2.jpg", 
-        price: 199, 
+        price: 205, 
         products: [
             { type: "pizza", name: "Pizza de Peperoni", options: { ingredients: ingredientes } },
             { type: "complementos", name: "Espagueti Sencillo" },
@@ -107,7 +107,7 @@ const paquetes = [
         name: "Paquete 3",
         id: "paquete-3", 
         img: "imgs/Paquete3.jpg", 
-        price: 229, 
+        price: 235, 
         products: [
             { type: "pizza", name: "Pizza De Boneless (Bañados o Naturales)", options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } },
             { type: "complemento", name: "Aderezo A Elegir", options: { sauces: ["Ranch", "Jalapeño", "Chipotle", "BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"] } },
@@ -120,7 +120,7 @@ const paquetes = [
         name: "Paquete 4", 
         id: "paquete-4",
         img: "imgs/Paquete4.jpg", 
-        price: 329, 
+        price: 345, 
         products: [
             { type: "pizza", name: "2 Pizzas de Peperoni con Extra Queso", options: { ingredients: ingredientes, multiple: true } },
             { type: "bebida", name: "Refresco Grande 1.75L" }
@@ -131,7 +131,7 @@ const paquetes = [
         name: "Paquete 5", 
         id: "paquete-5",
         img: "imgs/Paquete5.jpg", 
-        price: 329, 
+        price: 355, 
         products: [
             { type: "pizza", name: "Pizza Grande de 1 Ingrediente", options: { ingredients: ingredientes } },
             { type: "bonealitas", name: "Boneless con Papas", options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } },
@@ -144,18 +144,18 @@ const paquetes = [
 const bonealitas = [
     { id: "bonealitas-boneless", type: "bonealitas", name: "Boneless", img: "imgs/boneless.jpg", price: 149, options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } },
     { id: "bonealitas-alitas", type: "bonealitas", name: "Alitas", img: "imgs/alitas.jpg", price: 149, options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } },
-    { id: "bonealitas-1kg-boneless", type: "bonealitas", name: "1Kg de Boneless (No incluye papas)", img: "imgs/kiloBoneless.jpg", price: 289, options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } },
-    { id: "bonealitas-1kg-alitas", type: "bonealitas", name: "1Kg de Alitas  (No incluye papas)", img: "imgs/alitas.jpg", price: 289, options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } }
+    { id: "bonealitas-1kg-boneless", type: "bonealitas", name: "1Kg de Boneless (No incluye papas)", img: "imgs/kiloBoneless.jpg", price: 299, options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } },
+    { id: "bonealitas-1kg-alitas", type: "bonealitas", name: "1Kg de Alitas  (No incluye papas)", img: "imgs/alitas.jpg", price: 299, options: { sauces: ["BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], type: ["Bañados", "Naturales"] } }
 ];
 
 const complementos = [
-    { id: "complemento-papas-sencillas", type: "complemento", name: "Papas Sencillas", img: "imgs/papassencillas.jpg", price: 49 },
+    { id: "complemento-papas-sencillas", type: "complemento", name: "Papas Sencillas", img: "imgs/papassencillas.jpg", price: 59 },
     { id: "complemento-papas-preparadas", type: "complemento", name: "Papas Preparadas", img: "imgs/papaspreparadas.jpg", price: 69 },
     { id: "complemento-espagueti-sencillo", type: "complemento", name: "Espagueti Sencillo", img: "imgs/espagueti.jpg", price: 59 },
     { id: "complemento-espagueti-carne", type: "complemento", name: "Espagueti Con Carne", img: "imgs/espagueticarne.jpg", price: 79 },
     { id: "complemento-aderezo", type: "complemento", name: "Aderezo", img: "imgs/aderezo.jpg", price: 15, options: { sauces: ["Ranch", "Jalapeño", "Chipotle", "BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"] } },
     { id: "complemento-3aderezos", type: "complemento", name: "3 Aderezos por $30", img: "imgs/aderezo.jpg", price: 30, options: { sauces: ["Ranch", "Jalapeño", "Chipotle", "BBQ", "Buffalo", "Mango Habanero", "Parmesano", "Lemon Pepper"], multiple: true } },
-    { id: "complemento-aros-cebolla", type: "complemento", name: "8 Aros de Cebolla", img: "imgs/arosdecebolla.jpg", price: 69 },
+    { id: "complemento-aros-cebolla", type: "complemento", name: "8 Aros de Cebolla", img: "imgs/arosdecebolla.jpg", price: 79 },
     { id: "complemento-dedos-queso", type: "complemento", name: "5 Dedos de Queso", img: "imgs/dedosdequeso.jpg", price: 89},
     { id: "complemento-jalapenos-poppers", type: "complemento", name: "5 Jalapeños Poppers", img: "imgs/jalapeñospoppers.jpg", price: 89 },
     { id: "complemento-refresco", type: "complemento", name: "Refresco Grande 1.75L", img: "imgs/cocacola.jpg", price: 59 }
